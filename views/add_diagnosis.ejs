@@ -1,0 +1,53 @@
+<html>
+
+<head>
+        <title>Hospital Repo</title>
+</head>
+
+<body>
+        <p>User ID: <strong> <%- u_id %> </strong></p>
+        <p>Username: <strong> <%- uname %> </strong></p>
+        <hr>
+
+        <% if(typeof errors != 'undefined') { %>
+                <% errors.forEach(function(error) { %>
+    
+                    <h5 style="color: red"> <%= error.msg %> </h5>
+                     
+                <% }) %>
+            <% } %>
+    
+            <% if(message != ''){ %>
+                <p style="color: green">  <%= message %> </p>
+     
+             <% } %>
+     
+             <% if(error_msg != ''){ %>
+               <p style="color: red">  <%= error_msg %></p>
+               
+             <% } %>
+
+        <h1>Hospital Repo App</h1>
+        
+        <a href="/dashboard">Home</a>
+        <a href="/addpatient">Add Patient</a>
+        <a href="/viewpatient">View Patient</a>
+
+        
+        
+
+        <h4>Add Diagnosis</h4>
+        
+        <form action="/addDiagnosis" method="post">
+            <p>Patient ID: <input type="text" name="patient_id" value="<%= p_id %>"></p>
+            <p>Complaint: <br><textarea rows="10" cols="25" name="complaint"></textarea></p>
+            <p>Recommendation: <br><textarea rows="10" cols="25" name="recommendation"></textarea></p>
+            
+           
+            <input type="submit" value="Click to Add">
+
+
+</form>
+
+</body>
+</html>

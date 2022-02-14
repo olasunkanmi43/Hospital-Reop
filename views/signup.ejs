@@ -1,0 +1,71 @@
+<html>
+
+<head>
+        <title>Hospital Repo</title>
+</head>
+
+<body>
+        <h2>TCC Hospital Repo App</h2>
+        <ul>
+            <li><a href="/">Welcome Page</a></li>
+            <li><a href="/login">Login Page</a></li>
+        </ul>
+
+        <% if(typeof errors != 'undefined') { %>
+            <% errors.forEach(function(error) { %>
+
+                <h5 style="color: red"> <%= error.msg %> </h5>
+                 
+            <% }) %>
+        <% } %>
+
+        <% if(message != ''){ %>
+            <p style="color: green">  <%= message %> </p>
+ 
+         <% } %>
+ 
+         <% if(error_msg != ''){ %>
+           <p style="color: red">  <%= error_msg %></p>
+           
+         <% } %>
+        
+
+        <h4>Signup Page</h4>
+        <p>Please fill in your details below</p>
+        <form action="/signup" method="post">
+            <p>Firstname: <input type="text" name="firstname" value="<%= typeof firstname != 'undefined' ? firstname : '' %>"></p>
+            <p>Lastname: <input type="text" name="lastname" value="<%= typeof lastname != 'undefined' ? lastname : '' %>"></p>
+            <p>Gender: Male <input type="radio" name="gender" value="Male" <% if(typeof gender != 'undefined' && gender === 'Male'){ %> checked="checked" <%}%>>
+                          Female <input type="radio" name="gender" value="Female" <% if(typeof gender != 'undefined' && gender === 'Female'){ %> checked="checked" <%}%>>
+            </p>
+            <p>Phone Number: <input type="text" name="phoneNumber" value="<%= typeof phoneNumber != 'undefined' ? phoneNumber : '' %>"></p>
+            <p>Qualification: B.Sc <input type="radio" name="qualification" value="B.Sc">
+                              M.Sc <input type="radio" name="qualification" value="M.Sc">
+                              Ph.D <input type="radio" name="qualification" value="Ph.D">
+            </p>
+
+           <% let speciality = ["General Medicine", "General Surgeon", "Neuro Surgeon", "Physiotherapist", "Gynecologist", "Dentist", "Optamlogist"] %>
+
+           <p>Specialization: <select name="specialization">
+                                <option value="">Select your Qualification</option>
+                    <% speciality.forEach(function(specialization) { %>
+                        <option value="<%- specialization %>"><%- specialization %></option>
+                    <% }) %>
+
+           </select></p>
+
+           <p>Hospital Name: <input type="text" name="hospitalName" value="<%= typeof hospitalName != 'undefined' ? hospitalName : '' %>"></p>
+           <p>Preferred Username: <input type="text" name="username" value="<%= typeof username != 'undefined' ? username : '' %>"></p>
+           <p>Password: <input type="text" name="pass1" value="<%= typeof pass1 != 'undefined' ? pass1 : '' %>"></p>
+           <p>Confirm Password: <input type="text" name="pass2" value="<%= typeof pass2 != 'undefined' ? pass2 : '' %>"></p>
+
+           <input type="submit" value="Click to Signup">
+
+           
+
+        </form>
+        
+</body>
+</html>
+
+

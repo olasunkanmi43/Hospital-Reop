@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>Hospital Repo</title>
+</head>
+<body>
+        <p>User ID: <strong> <%- u_id %> </strong></p>
+        <p>Username: <strong> <%- uname %> </strong></p>
+
+        <h1>Welcome to Hospital Repo</h1>
+
+        <a href="/dashboard">Home</a>
+        <a href="/addpatient">Add Patient</a>
+        <a href="/viewpatient">View Patient</a>
+
+        <hr>
+
+        <h3>Patient Records</h3>
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>phone Number</th>
+                <th>marital Status</th>
+                <th>Blood Group</th>
+                <th>Genotype</th>
+                <th>Add Diagnosis</th>
+                <th>View Diagnosis</th>
+            </tr>
+                <tr>
+            <% result.forEach((recs) => { %>
+                <td><%= recs.firstname + " "+recs.lastname %></td>
+                <td><%= recs.gender %></td>
+                <td><%= recs.phone %></td>
+                <td><%= recs.maritalStatus %></td>
+                <td><%= recs.bloodGroup %></td>
+                <td><%= recs.genotype %></td>
+                <td><a href="/addDiagnosis/<%= recs.id %>">Add Diagnosis</a></td>
+                <td><a href="/viewDiagnosis/<%= recs.id %>">View Diagnosis</a></td>
+            </tr>
+            <% }) %>
+
+        </table>
+
+</body>
+</html>

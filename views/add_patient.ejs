@@ -1,0 +1,71 @@
+<html>
+
+<head>
+        <title>Hospital Repo</title>
+</head>
+
+<body>
+        <p>User ID: <strong> <%- u_id %> </strong></p>
+        <p>Username: <strong> <%- uname %> </strong></p>
+        <hr>
+
+        <% if(typeof errors != 'undefined') { %>
+                <% errors.forEach(function(error) { %>
+    
+                    <h5 style="color: red"> <%= error.msg %> </h5>
+                     
+                <% }) %>
+            <% } %>
+    
+            <% if(message != ''){ %>
+                <p style="color: green">  <%= message %> </p>
+     
+             <% } %>
+     
+             <% if(error_msg != ''){ %>
+               <p style="color: red">  <%= error_msg %></p>
+               
+             <% } %>
+
+        <h1>Hospital Repo App</h1>
+        
+        <a href="/dashboard">Home</a>
+        <a href="/addpatient">Add Patient</a>
+        <a href="/viewpatient">View Patient</a>
+
+        
+        
+
+        <h4>Patient Registration Form</h4>
+        <p>Please input Patient's Biodata Details as follows</p>
+        <form action="/addpatient" method="post">
+            <p>Firstname: <input type="text" name="firstname"></p>
+            <p>Lastname: <input type="text" name="lastname"></p>
+            <p>Gender: Male <input type="radio" name="gender" value="Male">
+                          Female <input type="radio" name="gender" value="Female">
+            </p>
+            <p>Phone Number: <input type="text" name="phone"></p>
+            <p>Marital Status: Single <input type="radio" name="maritalStatus" value="Single">
+                               Married <input type="radio" name="maritalStatus" value="Married">
+                               Divorced <input type="radio" name="maritalStatus" value="Divorced">
+                               Widowed <input type="radio" name="maritalStatus" value="Widowed">
+            </p>
+            <p>Blood Group: A<sup>+</sup><input type="radio" name="bloodGroup" value="A+">
+                            O<sup>+</sup><input type="radio" name="bloodGroup" value="O+">
+                            0<sup>-</sup><input type="radio" name="bloodGroup" value="0-">
+                            BB<input type="radio" name="bloodGroup" value="BB">
+</p>
+
+            <p>Genotype: AA <input type="radio" name="genotype" value="AA">
+                         AS <input type="radio" name="genotype" value="AS">
+                         AC <input type="radio" name="genotype" value="AC">
+                         SS <input type="radio" name="genotype" value="SS">
+            </p>
+
+            <input type="submit" value="Click to Add">
+
+
+</form>
+
+</body>
+</html>
